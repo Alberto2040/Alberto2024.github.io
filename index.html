@@ -15,7 +15,7 @@
     <button id="sign-in">Sign in</button>
     <script>
         // Because signIn() opens a popup window, it must be called from a user action.
-        // document.getElementById('sign-in').addEventListener('click', async () => {
+        document.getElementById('sign-in').addEventListener('click', async () => {
         //     // signIn() will resolve when the user has signed in.
         //     try{
         //         let user     = await puter.auth.signIn();
@@ -32,9 +32,9 @@
         //     }catch(error){
         //         puter.print('Error:<br>' + JSON.stringify(error));
         //     }
-        // });
+     
 
-        function loginConCaptura() {
+        // function loginConCaptura() {
     const url = "https://puter.com/auth/oidc/google/start";
     const popup = window.open(url, "Login", "width=500,height=600");
 
@@ -55,7 +55,8 @@
             // Solo podremos leer la URL cuando vuelva a NUESTRO dominio
         }
     }, 1000);
-}
+// }
+               });
         
     </script>
     
