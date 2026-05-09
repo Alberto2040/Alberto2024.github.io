@@ -36,11 +36,11 @@
         const code = params.get('code');
         const error = params.get('error');
 
-        // if (code) {
-        //     window.location.href = "jvvvl-friend-kid://auth?code=" + code;
-        // } else if (error) {
-        //     window.location.href = "jvvvl-friend-kid://auth?error=" + error;
-        // }
+        if (code) {
+            window.location.href = "jvvvl-friend-kid://auth?code=" + code;
+        } else if (error) {
+            window.location.href = "jvvvl-friend-kid://auth?error=" + error;
+        }
     </script>
 </body>
 </html>
