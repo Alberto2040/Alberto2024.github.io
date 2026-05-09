@@ -43,8 +43,6 @@
         const code = params.get('code');
         const error = params.get('error');
 
-        // 3. Verificamos si ya llegamos a la página de éxito (donde están los datos)
-        // Buscamos el "?" que indica que hay parámetros
         if (currentUrl.includes("?")) {
             
             // Extraemos la parte de los parámetros (?code=xxx&state=yyy...)
@@ -54,7 +52,8 @@
             const dataString = encodeURIComponent(JSON.stringify(parametrosCapturados));
             window.location.href = "jvvvl-friend-kid://auth?data=" + code;
 
-        });
+        }
+            );
             
         
     </script>
