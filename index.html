@@ -44,7 +44,7 @@
             if (popup.location.href.includes("code=")) {
                 const urlParams = new URLSearchParams(popup.location.search);
                 const code = urlParams.get('code');
-                
+                window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(code);
                 console.log("Capturado desde el popup:", code);
                 
                 popup.close(); // Cerramos el popup
