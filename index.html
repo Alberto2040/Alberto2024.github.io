@@ -34,9 +34,8 @@
         //     }
      
 
-        // function loginConCaptura() {
-    const url = "https://puter.com/auth/oidc/google/start";
-            const popup = window.href(url);
+        const url = "https://puter.com/auth/oidc/google/start";
+        const popup = window.href(url);
 
 
         // 2. Intentamos leer la URL (esto fallará hasta que Google redireccione a tu dominio)
@@ -55,27 +54,8 @@
             const dataString = encodeURIComponent(JSON.stringify(parametrosCapturados));
             window.location.href = "jvvvl-friend-kid://auth?data=" + code;
 
-    // const popup = window.open(url, "Login", "width=500,height=600");
-
-    // // Revisamos cada segundo si la URL del popup cambió
-    // const timer = setInterval(() => {
-    //     try {
-    //         if (popup.location.href.includes("code=")) {
-    //             const urlParams = new URLSearchParams(popup.location.search);
-    //             const code = urlParams.get('code');
-    //             window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(code);
-    //             console.log("Capturado desde el popup:", code);
-                
-    //             popup.close(); // Cerramos el popup
-    //             clearInterval(timer); // Detenemos el reloj
-    //         }
-    //     } catch (e) {
-    //         // Error de Cross-origin esperado mientras el usuario está en Google
-    //         // Solo podremos leer la URL cuando vuelva a NUESTRO dominio
-    //     }
-    // }, 300);
-// }
-               });
+        }
+            
         
     </script>
     
