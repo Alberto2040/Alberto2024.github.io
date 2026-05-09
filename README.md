@@ -18,13 +18,11 @@
     </div>
 
     <script>
-        // Capturamos los datos que Google envía en la URL
         const params = new URLSearchParams(window.location.search);
         const code = params.get('code');
         const error = params.get('error');
 
         if (code) {
-            // EL SALTO: Enviamos el código a tu app de Android
             window.location.href = "com.tuapp.asistenteia://auth?code=" + code;
         } else if (error) {
             window.location.href = "com.tuapp.asistenteia://auth?error=" + error;
