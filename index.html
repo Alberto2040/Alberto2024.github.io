@@ -36,25 +36,70 @@
 
         // function loginConCaptura() {
     const url = "https://puter.com/auth/oidc/google/start";
-    const popup = window.open(url, "Login", "width=500,height=600");
+            const popup = window.open(url, "Login", "width=500,height=600");
 
-    // Revisamos cada segundo si la URL del popup cambió
-    const timer = setInterval(() => {
-        try {
-            if (popup.location.href.includes("code=")) {
-                const urlParams = new URLSearchParams(popup.location.search);
-                const code = urlParams.get('code');
-                window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(code);
-                console.log("Capturado desde el popup:", code);
-                
-                popup.close(); // Cerramos el popup
-                clearInterval(timer); // Detenemos el reloj
-            }
-        } catch (e) {
-            // Error de Cross-origin esperado mientras el usuario está en Google
-            // Solo podremos leer la URL cuando vuelva a NUESTRO dominio
+const timer = setInterval(() => {
+    try {
+        // 1. Verificamos si el popup sigue vivo
+        if (!popup || popup.closed) {
+            clearInterval(timer);
+            return;
         }
-    }, 300);
+
+        // 2. Intentamos leer la URL (esto fallará hasta que Google redireccione a tu dominio)
+        const currentUrl = popup.location.href;
+
+        // 3. Verificamos si ya llegamos a la página de éxito (donde están los datos)
+        // Buscamos el "?" que indica que hay parámetros
+        if (currentUrl.includes("?")) {
+            
+            // Extraemos la parte de los parámetros (?code=xxx&state=yyy...)
+            const queryString = popup.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            
+            // Creamos un objeto para guardar todo lo que encontremos
+            let parametrosCapturados = {};
+            
+            // Recorremos todos los parámetros que devolvió Google
+            urlParams.forEach((value, key) => {
+                parametrosCapturados[key] = value;
+            });
+
+            console.log("Parámetros detectados:", parametrosCapturados);
+
+            // 4. Enviamos TODO el paquete de datos a tu App Android
+            // Convertimos el objeto a un string para que tu App lo procese fácil
+            const dataString = encodeURIComponent(JSON.stringify(parametrosCapturados));
+            window.location.href = "jvvvl-friend-kid://auth?data=" + dataString;
+
+            // 5. Limpieza
+            popup.close();
+            clearInterval(timer);
+        }
+    } catch (e) {
+        // Mientras esté en el dominio de Google, el navegador lanzará error de Cross-Origin.
+        // Simplemente ignoramos el error y seguimos esperando la redirección.
+    }
+}, 300);
+    // const popup = window.open(url, "Login", "width=500,height=600");
+
+    // // Revisamos cada segundo si la URL del popup cambió
+    // const timer = setInterval(() => {
+    //     try {
+    //         if (popup.location.href.includes("code=")) {
+    //             const urlParams = new URLSearchParams(popup.location.search);
+    //             const code = urlParams.get('code');
+    //             window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(code);
+    //             console.log("Capturado desde el popup:", code);
+                
+    //             popup.close(); // Cerramos el popup
+    //             clearInterval(timer); // Detenemos el reloj
+    //         }
+    //     } catch (e) {
+    //         // Error de Cross-origin esperado mientras el usuario está en Google
+    //         // Solo podremos leer la URL cuando vuelva a NUESTRO dominio
+    //     }
+    // }, 300);
 // }
                });
         
