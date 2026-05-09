@@ -19,19 +19,17 @@
             // signIn() will resolve when the user has signed in.
             try{
 
-                alert("ejecuto login")
+                // alert("ejecuto login")
                 let user     = await puter.auth.signIn();
                 puter.print('Signed in:<br>' + JSON.stringify(user));
                 
-        // //         const params = new URLSearchParams(window.location.search);
-        // // const code = params.get('code');
-        // // const error = params.get('error');
 
-        // // if (user) {
+
+        if (user && Object.keys(user).length > 0) {
             window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
-        // // } else if (error) {
-        //     // window.location.href = "jvvvl-friend-kid://auth?error=" + error;
-        // // }
+        } else if (error) {
+            window.location.href = "jvvvl-friend-kid://auth?error=" + error;
+        }
             }catch(error){
                 puter.print('Error:<br>' + JSON.stringify(error));
             }
