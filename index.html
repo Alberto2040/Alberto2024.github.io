@@ -16,16 +16,16 @@
     <script>
         // Because signIn() opens a popup window, it must be called from a user action.
         document.getElementById('sign-in').addEventListener('click', async () => {
-        //     // signIn() will resolve when the user has signed in.
-        //     try{
-        //         let user     = await puter.auth.signIn();
-        //         puter.print('Signed in:<br>' + JSON.stringify(user));
+            // signIn() will resolve when the user has signed in.
+            try{
+                let user     = await puter.auth.signIn();
+                puter.print('Signed in:<br>' + JSON.stringify(user));
         // //         const params = new URLSearchParams(window.location.search);
         // // const code = params.get('code');
         // // const error = params.get('error');
 
         // // if (user) {
-        //     window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
+            window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
         // // } else if (error) {
         //     // window.location.href = "jvvvl-friend-kid://auth?error=" + error;
         // // }
@@ -33,31 +33,8 @@
         //         puter.print('Error:<br>' + JSON.stringify(error));
         //     }
 
-        alert("ejecuto login")
-     
-        const url = "https://puter.com/auth/oidc/google/start";
-        const popup = window.open(url, "Login", "width=500,height=600,scrollbars=yes");
-        alert("llamo la url")
-
-        // 2. Intentamos leer la URL (esto fallará hasta que Google redireccione a tu dominio)
-        const params = new URLSearchParams(window.location.search);
-            alert("busca los parametros")
-        const code = params.get('code');
-        const error = params.get('error');
-        alert("ok/error: ", code, error)
-        if (currentUrl.includes("?")) {
-            
-            // Extraemos la parte de los parámetros (?code=xxx&state=yyy...)
-            const queryString = popup.location.search;
-
-
-            const dataString = encodeURIComponent(JSON.stringify(parametrosCapturados));
-            window.location.href = "jvvvl-friend-kid://auth?data=" + code;
-
-        }
         });
             
-        
     </script>
     
     <div style="text-align: center;">
