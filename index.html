@@ -18,8 +18,11 @@
         document.getElementById('sign-in').addEventListener('click', async () => {
             // signIn() will resolve when the user has signed in.
             try{
+
+                alert("ejecuto login")
                 let user     = await puter.auth.signIn();
                 puter.print('Signed in:<br>' + JSON.stringify(user));
+                
         // //         const params = new URLSearchParams(window.location.search);
         // // const code = params.get('code');
         // // const error = params.get('error');
