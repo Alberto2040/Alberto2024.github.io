@@ -24,14 +24,14 @@
         // const code = params.get('code');
         // const error = params.get('error');
 
-        if (user) {
+        // if (user) {
             window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
-        } else if (error) {
-            window.location.href = "jvvvl-friend-kid://auth?error=" + error;
-        }
-            }catch(error){
-                puter.print('Error:<br>' + JSON.stringify(error));
-            }
+        // } else if (error) {
+            // window.location.href = "jvvvl-friend-kid://auth?error=" + error;
+        // }
+        //     }catch(error){
+        //         puter.print('Error:<br>' + JSON.stringify(error));
+        //     }
         });
     </script>
     
