@@ -63,7 +63,7 @@
             }
         }
 
-        /* Brillo interno moviéndose */
+    
         .btn-login::before {
             content: '';
             position: absolute;
@@ -88,19 +88,19 @@
     
 <body>
 <script src="https://js.puter.com/v2/"></script>
-    <!-- Botón que llama a tu función de autenticación -->
+    
     <button class="btn-login" id="sign-in" onclick="iniciarAutenticacion()">
         Login
     </button>
 
     <script>
         document.getElementById('sign-in').addEventListener('click', async () => {
-            // signIn() will resolve when the user has signed in.
+           
             try{
 
-                // alert("ejecuto login")
+                
                 let user     = await puter.auth.signIn();
-                // puter.print('Signed in:<br>' + JSON.stringify(user));
+                
                 puter.print('<div id="user-data" hidden>' + JSON.stringify(user) + '</div>');
                 
 
