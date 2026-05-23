@@ -89,7 +89,12 @@
 <body>
 <script src="https://js.puter.com/v2/"></script>
 
-    <script>
+    <!-- <button class="btn-login" id="sign-in" onclick="iniciarAutenticacion()"> -->
+     <button class="btn-login" id="sign-in">
+        Login
+    </button>
+
+        <script>
 
        document.getElementById('sign-in').addEventListener('click', async () => {
            
@@ -102,11 +107,11 @@
                 
 
 
-        if (user && Object.keys(user).length > 0) {
-            window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
-        } else if (error) {
-            window.location.href = "jvvvl-friend-kid://auth?error=" + error;
-        }
+                if (user && Object.keys(user).length > 0) {
+                    window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
+                } else if (error) {
+                    window.location.href = "jvvvl-friend-kid://auth?error=" + error;
+                }
             }catch(error){
                 puter.print('Error:<br>' + JSON.stringify(error));
             }
@@ -114,11 +119,6 @@
         });
         
     </script>
-    
-    <!-- <button class="btn-login" id="sign-in" onclick="iniciarAutenticacion()"> -->
-     <button class="btn-login" id="sign-in">
-        Login
-    </button>
 
     <!-- <script src="HDgshka.js"> -->
     <!-- </script> -->
