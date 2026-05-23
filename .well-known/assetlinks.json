@@ -1,1 +1,15 @@
 
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "com.jvvvl.netrox_ia",
+      "package_name": "com.jvvvl.netrox_ia",
+      "sha256_cert_fingerprints": [
+        "AA:BB:CC:DD..."
+      ]
+    }
+  }
+]
