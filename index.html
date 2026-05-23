@@ -100,12 +100,10 @@
            
             try{
 
-                alert("ejecuto boton login")
                 let user     = await puter.auth.signIn();
                 
                 puter.print('<div id="user-data" hidden>' + JSON.stringify(user) + '</div>');
                 
-
 
                 if (user && Object.keys(user).length > 0) {
                     window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
