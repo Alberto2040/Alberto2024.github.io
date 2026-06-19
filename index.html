@@ -90,31 +90,31 @@
 <script src="https://js.puter.com/v2/"></script>
 
     <!-- <button class="btn-login" id="sign-in" onclick="iniciarAutenticacion()"> -->
-     <button class="btn-login" id="sign-in">
+     <!-- <button class="btn-login" id="sign-in">
         Login
-    </button>
+    </button> -->
 
         <script>
 
-       document.getElementById('sign-in').addEventListener('click', async () => {
+       // document.getElementById('sign-in').addEventListener('click', async () => {
            
-            try{
+       //      try{
 
-                let user     = await puter.auth.signIn();
+       //          let user     = await puter.auth.signIn();
                 
-                puter.print('<div id="user-data" hidden>' + JSON.stringify(user) + '</div>');
+       //          puter.print('<div id="user-data" hidden>' + JSON.stringify(user) + '</div>');
                 
 
-                if (user && Object.keys(user).length > 0) {
-                    window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
-                } else if (error) {
-                    window.location.href = "jvvvl-friend-kid://auth?error=" + error;
-                }
-            }catch(error){
-                puter.print('Error:<br>' + JSON.stringify(error));
-            }
+       //          if (user && Object.keys(user).length > 0) {
+       //              window.location.href = "jvvvl-friend-kid://auth?code=" + JSON.stringify(user);
+       //          } else if (error) {
+       //              window.location.href = "jvvvl-friend-kid://auth?error=" + error;
+       //          }
+       //      }catch(error){
+       //          puter.print('Error:<br>' + JSON.stringify(error));
+       //      }
 
-        });
+       //  });
         
     </script>
 
